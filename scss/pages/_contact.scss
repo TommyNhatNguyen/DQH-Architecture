@@ -1,0 +1,12 @@
+.main#contact {
+    .sccontacthero {
+        padding-top: var(--header-height);
+    }
+    .scadvise {
+        .container {
+            &::before {
+                content: none;
+            }
+        }
+    }
+}

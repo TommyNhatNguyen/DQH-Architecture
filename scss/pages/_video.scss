@@ -1,0 +1,105 @@
+.main#video {
+    // Video section
+    .scvideo {
+        padding-top: var(--header-height);
+        // Textbox
+        &__textbox {
+            @include flex-mid-between;
+            gap: var(--gap);
+        }
+        // Article list
+        .sclastprojects__articlelist {
+            @include transition(var(--transition-duration));
+            &-group {
+                .article {
+                    .thumb {
+                        cursor: pointer;
+                        position: relative;
+                        .playicon {
+                            pointer-events: none;
+                            @include mid;
+                            &::after {
+                                content: "";
+                                display: block;
+                                @include mid;
+                                background-color: var(--white-cl);
+                                width: 80px;
+                                aspect-ratio: 80 / 80;
+                                background-color: var(--white-cl);
+                                opacity: 0.2;
+                                border-radius: 100%;
+                                @include transition(var(--transition-duration));
+                            }
+                        }
+                        &:hover {
+                            .playicon {
+                                &::after {
+                                    opacity: 0.4;
+                                }
+                            }
+                        }
+                    }
+                }
+                .textbox {
+                    .heading {
+                        cursor: pointer;
+                    }
+                }
+                .btnreadpost {
+                    cursor: pointer;
+                    width: fit-content;
+                }
+            }
+        }
+        // Responsive
+        @include sm {
+            // Textbox
+            &__textbox {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+        }
+    }
+    // Video modal
+    .video {
+        z-index: 2000;
+        @include fullscreen(true);
+        @include mid(true);
+        @include visible(false);
+        @include transition(var(--transition-duration));
+        pointer-events: none;
+        // Active
+        &.--active {
+            @include visible(true);
+            pointer-events: initial;
+        }
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: var(--main-cl);
+            opacity: 0.96;
+        }
+        &__inner {
+            z-index: 10;
+            aspect-ratio: 1600 / 900;
+            width: 100%;
+            padding: 90px 160px;
+            iframe {
+                border-radius: 40px;
+                height: 100%;
+                width: 100%;
+            }
+        }
+        // Responsive
+        @include sm {
+            &__inner {
+                padding: 0 16px;
+            }
+        }
+    }
+}

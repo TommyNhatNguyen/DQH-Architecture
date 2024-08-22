@@ -1,0 +1,26 @@
+.main#projects {
+    // Last projects
+    .sclastprojects {
+        --pdt-section: var(--header-height);
+        padding-top: var(--pdt-section);
+        // Textbox
+        &__textbox {
+            @include flex-mid-between;
+            gap: var(--gap);
+        }
+        // Article list
+        &__articlelist {
+            margin-top: 18px;
+            @include transition(var(--transition-duration));
+        }
+        // Responsive
+        @include sm {
+            // Textbox
+            &__textbox {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+        }
+    }
+}

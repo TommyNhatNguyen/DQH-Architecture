@@ -1,0 +1,149 @@
+.main#introduction {
+    // Introduction
+    .scintro {
+        padding-top: var(--header-height);
+        // Content
+        &__content {
+            margin-top: 103px;
+            display: grid;
+            align-items: center;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--gap);
+            // Left
+            &-left {
+                p {
+                    font-size: var(--fs-h2-small);
+                    line-height: var(--lh-h2-small);
+                    letter-spacing: var(--ls-h2-small);
+                }
+            }
+            // Right
+            &-right {
+                margin-left: 150px;
+                // Description
+                .desc {
+                    font-size: var(--fs-body-big);
+                    line-height: var(--lh-body-big);
+                    letter-spacing: var(--ls-body-big);
+                }
+                // Ability list
+                .abilitylist {
+                    margin-top: 60px;
+                    display: flex;
+                    gap: 24px;
+                    // Flickity enable
+                    &::after {
+                        content: "";
+                    }
+                    // Column
+                    &__column {
+                        // Item
+                        &-item {
+                            &:not(:last-child) {
+                                margin-bottom: 24px;
+                            }
+                        }
+                        // Description
+                        .desc {
+                            font-size: var(--fs-body-small);
+                            line-height: var(--lh-body-small);
+                            letter-spacing: var(--ls-body-small);
+                            margin-top: 8px;
+                        }
+                    }
+                }
+            }
+        }
+        // Responsive
+        @include sm {
+            // Content
+            &__content {
+                grid-template-columns: 1fr;
+                margin-top: 24px;
+                // Right
+                &-right {
+                    margin-left: initial;
+                    margin-top: 16px;
+                    // Description
+                    .desc {
+                        margin-bottom: 16px;
+                    }
+                    // Ability list
+                    .abilitylist {
+                        display: initial;
+                        // Flickity disable
+                        &::after {
+                            content: "flickity";
+                            display: none;
+                        }
+                        // Item
+                        &__column {
+                            display: flex;
+                            &-item {
+                                background-color: var(--neutral-cl);
+                                padding: 12px;
+                                min-height: 100%;
+                                margin-right: 8px;
+                                margin-left: 8px;
+                                width: calc(100% + 8px);
+                                &:not(:last-child) {
+                                    margin-bottom: initial;
+                                }
+                                &:first-child {
+                                    margin-left: initial;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // Team
+    .scteam {
+        --pdt-section: 287px;
+        --pdb-section: 126px;
+        padding-top: var(--pdt-section);
+        padding-bottom: var(--pdb-section);
+        // List
+        &__list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            column-gap: 78px;
+            row-gap: 84px;
+            &-figure {
+                // Image
+                .img {
+                    aspect-ratio: 482 / 450;
+                    img {
+                        @include midimg;
+                    }
+                }
+                // Description
+                .desc {
+                    margin-top: 66px;
+                    font-size: var(--fs-body-big);
+                    line-height: var(--lh-body-big);
+                    letter-spacing: var(--ls-body-big);
+                }
+            }
+        }
+        // Responsive
+        @include sm {
+            --pdt-section: 16px;
+            --pdb-section: 24px;
+            // List
+            &__list {
+                grid-template-columns: 1fr;
+                grid-template-rows: initial;
+                gap: 24px;
+                // Desc
+                .desc {
+                    margin-top: 16px;
+                }
+            }
+        }
+    }
+}

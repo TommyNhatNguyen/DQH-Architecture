@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+
+    <title>Flickity Responsive</title>
+
+</head>
+
+<body>
+
+<!-- Assets for dev -->
+<script src="https://code.jquery.com/jquery-3.6.1.slim.min.js"
+        integrity="sha256-w8CvhFs7iHNVUtnSP0YKEg00p9Ih13rlL9zGqvLdePA=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/3.0.0/flickity.pkgd.js"
+        integrity="sha512-IugMlI4mO8p/jg/cnoe/Duv6i6nkTHmiu8O4/Faqvt413HbCyacKTOBZZCutsGQStTUgd2vPbM3K3oiKSlSD9Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flickity/3.0.0/flickity.css"
+      integrity="sha512-TZTUnuHs1njGko8PJqZlHzqZTZd880A+BvhR1jy1v4mWB4VFKVLG/eK9LYdDjxqNLmttSC1ygmqg6rkYjnEgaQ=="
+      crossorigin="anonymous" referrerpolicy="no-referrer"/>
+
+
+<div class="container">
+
+
+    <div class="mb100 pt100">
+        <h1 data-title>Flickity Responsive</h1>
+        <p>
+            <a href="https://github.com/phucbm/flickity-responsive/releases/latest" target="_blank">
+                <img src="https://badgen.net/github/release/phucbm/flickity-responsive" alt="release">
+            </a>
+            <a href="https://www.jsdelivr.com/package/gh/phucbm/flickity-responsive" target="_blank">
+                <img src="https://data.jsdelivr.com/v1/package/gh/phucbm/flickity-responsive/badge?style=rounded"
+                     alt="jsdeliver hit">
+            </a>
+            <a href="https://www.npmjs.com/package/flickity-responsive" target="_blank">
+                <img src="https://badgen.net/npm/dm/flickity-responsive" alt="npm download">
+            </a>
+        </p>
+        <p data-description></p>
+    </div>
+
+
+    <section class="mb100">
+        <h2>Init with vanilla JS</h2>
+        <p>On screen less than or equal to 768px, show page dots and hide arrows.</p>
+        <!-- Flickity HTML init -->
+        <div class="carousel">
+            <div class="carousel-cell"></div>
+            <div class="carousel-cell"></div>
+            <div class="carousel-cell"></div>
+            <div class="carousel-cell"></div>
+            <div class="carousel-cell"></div>
+            <div class="carousel-cell"></div>
+            <div class="carousel-cell"></div>
+            <div class="carousel-cell"></div>
+        </div>
+        <pre>
+// init with vanilla JS
+const carousel = new FlickityResponsive('.carousel', {
+    pageDots: false,
+    responsive: [
+        {
+            breakpoint: 768,
+            settings: {
+                prevNextButtons: false,
+                pageDots: true,
+            }
+        }
+    ]
+});</pre>
+    </section>
+
+
+    <section class="mb100">
+        <h2>Init with jQuery</h2>
+        <p>On screen less than or equal to 768px, destroy carousel.</p>
+        <!-- Flickity HTML init -->
+        <div class="carousel-2">
+            <div class="carousel-cell"></div>
+            <div class="carousel-cell"></div>
+            <div class="carousel-cell"></div>
+            <div class="carousel-cell"></div>
+            <div class="carousel-cell"></div>
+        </div>
+        <pre>
+jQuery('.carousel-2').flickityResponsive({
+    responsive: [
+        {
+            breakpoint: 768,
+            settings: {
+                destroy: true
+            }
+        }
+    ]
+});</pre>
+    </section>
+
+
+    <section class="mb100">
+        <h2>Init with HTML</h2>
+        <p>Navigation elements (dots, arrows) will auto-hide if the carousel is not slide-able.</p>
+        <div data-flickity-responsive='{ "cellAlign": "left" }'>
+            <div class="carousel-cell" style="width:260px;"></div>
+            <div class="carousel-cell" style="width:260px;"></div>
+        </div>
+        <pre>data-flickity-responsive='{ "cellAlign": "left" }'</pre>
+    </section>
+
+
+    <section class="mb100">
+        <p style="margin-bottom:0;"><span class="extra-feature">Extra feature</span></p>
+        <div class="d-flex jc-space-between ai-center">
+            <h2>Custom arrows and indicator numbers</h2>
+            <div class="d-flex ai-center" style="gap:10px;">
+                <button id="prev">Prev</button>
+                <div><span id="current">0</span>/<span id="total">0</span></div>
+                <button id="next">Next</button>
+            </div>
+        </div>
+        <p>Use <code>prevArrow</code> and <code>nextArrow</code> to assign custom prev/next buttons.</p>
+        <p>Use <code>indicatorCurrent</code> and <code>indicatorTotal</code> to receive update about slide's position.
+        </p>
+        <div class="carousel-arrows">
+            <div class="carousel-cell"></div>
+            <div class="carousel-cell"></div>
+            <div class="carousel-cell"></div>
+            <div class="carousel-cell"></div>
+            <div class="carousel-cell"></div>
+        </div>
+        <pre>
+// custom arrows
+const carouselArrows = new FlickityResponsive('.carousel-arrows', {
+    prevNextButtons: false,
+    indicatorCurrent: document.querySelector('#current'),
+    indicatorTotal: document.querySelector('#total'),
+    prevArrow: document.querySelector('#prev'),
+    nextArrow: jQuery('#next'),
+    cellAlign: 'center',
+    contain: true
+});</pre>
+    </section>
+
+    <section class="mb100">
+        <p style="margin-bottom:0;"><span class="extra-feature">Extra feature</span></p>
+        <div>
+            <h2>Force move</h2>
+            <p>Enabled by default <code>forceMove:true</code>. This extra option will make sure that the carousel will
+                move
+                on every arrow click.</p>
+        </div>
+        <div data-flickity-responsive='{ "cellAlign": "left" }' class="mb50">
+            <div class="carousel-cell"></div>
+            <div class="carousel-cell"></div>
+            <div class="carousel-cell"></div>
+            <div class="carousel-cell"></div>
+            <div class="carousel-cell"></div>
+            <div class="carousel-cell"></div>
+            <div class="carousel-cell"></div>
+            <div class="carousel-cell"></div>
+            <div class="carousel-cell"></div>
+            <div class="carousel-cell"></div>
+        </div>
+        <p>Use <code>forceMove:false</code> if you prefer the normal behaviour of the carousel.</p>
+        <div data-flickity-responsive='{ "forceMove": "false" }'>
+            <div class="carousel-cell"></div>
+            <div class="carousel-cell"></div>
+            <div class="carousel-cell"></div>
+            <div class="carousel-cell"></div>
+            <div class="carousel-cell"></div>
+            <div class="carousel-cell"></div>
+            <div class="carousel-cell"></div>
+            <div class="carousel-cell"></div>
+            <div class="carousel-cell"></div>
+            <div class="carousel-cell"></div>
+        </div>
+    </section>
+
+    <!--Footer -->
+    <footer class="footer ta-center mb">
+        <hr class="mb bold">
+        <p>
+            <a href="https://github.com/phucbm/flickity-responsive" target="_blank">
+                <svg height="32" aria-hidden="true" viewBox="0 0 16 16" width="32"
+                     data-view-component="true"
+                     class="octicon octicon-mark-github v-align-middle">
+                    <path fill-rule="evenodd"
+                          d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+                </svg>
+            </a>
+        </p>
+        <p>Copyright (c) 2023 <a href="https://github.com/phucbm" target="_blank">Phuc Bui</a></p>
+        <p>Please leave a <a href="https://github.com/phucbm/flickity-responsive" style="font-weight:700;">star ⭐️</a>
+            to support my work. Thank you!</p>
+    </footer>
+
+</div>
+</body>
+
+</html>

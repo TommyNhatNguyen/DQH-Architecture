@@ -1,0 +1,216 @@
+.main#newsdetail {
+    // News detail
+    .scnewsdetail {
+        padding-top: var(--header-height);
+        padding-bottom: var(--pdb-section);
+        // Hero
+        &__hero {
+            display: flex;
+            align-items: center;
+            gap: var(--gap);
+            // Thumb
+            .thumb {
+                aspect-ratio: 960 / 629;
+                img {
+                    @include midimg;
+                }
+            }
+            // Textbox
+            .textbox {
+                max-width: 544px;
+                margin-left: 64px;
+                padding-right: var(--pd-container);
+            }
+        }
+        // Content
+        &__content {
+            margin-top: 132px;
+            // Container
+            .container {
+                display: grid;
+                grid-template-columns: repeat(10, 1fr);
+                gap: var(--gap);
+                & > * {
+                    grid-column: 3 / 10;
+                }
+            }
+            // Paragraph
+            p {
+                &:not(:last-child) {
+                    margin-bottom: 16px;
+                }
+            }
+            // Heading
+            h3 {
+                margin-top: 32px;
+                margin-bottom: 16px;
+                font-family: var(--ff-semibold);
+            }
+            h2 {
+                margin-bottom: 20px;
+                font-family: var(--ff-semibold);
+            }
+            // Figure
+            figure {
+                margin: 48px 0;
+                aspect-ratio: 958 / 480;
+                img {
+                    @include midimg;
+                }
+                figcaption {
+                    margin-top: 16px;
+                }
+            }
+            // Blockquote
+            blockquote {
+                margin: 48px 0;
+                font-size: var(--fs-body-big);
+                line-height: var(--lh-body-big);
+                letter-spacing: var(--ls-body-big);
+                color: #282a29;
+                p {
+                    margin-top: 32px;
+                }
+            }
+            // Order list
+            ol {
+                list-style-type: decimal;
+                padding-left: 18px;
+            }
+            // Group
+            &-group {
+                // First content
+                &:first-child {
+                    padding-bottom: 33px;
+                    border-bottom: 1px solid var(--gray-light-cl);
+                }
+                // Conclusion
+                &:nth-last-child(2) {
+                    margin: 48px 0;
+                    padding: 32px;
+                    background-color: var(--neutral-cl);
+                }
+                // Share this post
+                &:last-child {
+                    @include flex-mid-between;
+                    gap: var(--gap);
+                    padding-top: 24px;
+                    border-top: 1px solid var(--gray-light-cl);
+                    // Text
+                    span {
+                        color: var(--gray-dark-cl);
+                    }
+                    // Button
+                    button {
+                        background-color: transparent;
+                        display: flex;
+                        align-items: center;
+                        cursor: pointer;
+                        gap: 8px;
+                        height: 40px;
+                        padding: 0 28px;
+                        font-size: var(--fs-button-small);
+                        line-height: var(--lh-button-small);
+                        letter-spacing: var(--ls-button-small);
+                        @include transition(var(--transition-duration));
+                        &:hover {
+                            background-color: var(--neutral-cl);
+                        }
+                    }
+                }
+            }
+        }
+        // Responsive
+        @include sm {
+            // Hero
+            &__hero {
+                flex-direction: column-reverse;
+                padding-left: var(--pd-container);
+                padding-right: var(--pd-container);
+                gap: 24px;
+                // Textbox
+                .textbox {
+                    max-width: initial;
+                    margin-left: initial;
+                    padding-right: initial;
+                    h2 {
+                        font-size: 2.2rem;
+                        line-height: 1.2;
+                        letter-spacing: 0.035rem;
+                    }
+                    p {
+                        font-size: 1.6rem;
+                        line-height: 1.4;
+                        letter-spacing: -0.018rem;
+                        color: #475467;
+                        font-family: var(--ff-regular);
+                    }
+                }
+            }
+            // Content
+            &__content {
+                margin-top: 24px;
+                gap: initial;
+                font-family: var(--ff-regular);
+                .container {
+                    display: block;
+                    & > * {
+                        grid-column: initial;
+                    }
+                }
+                // Paragraph
+                p {
+                    font-size: 1.6rem;
+                    line-height: 1.4;
+                    letter-spacing: -0.018rem;
+                }
+                // Heading
+                h3 {
+                    font-size: 2.6rem;
+                    line-height: 1.2;
+                    letter-spacing: -0.053rem;
+                }
+                h2 {
+                    font-size: 4.2rem;
+                    line-height: 1.2;
+                    letter-spacing: -0.093rem;
+                }
+                // Figure
+                figure {
+                    figcaption {
+                        font-size: 1.6rem;
+                        line-height: 1.4;
+                        letter-spacing: -0.018rem;
+                    }
+                }
+                // Blockquote
+                blockquote {
+                    margin: 48px 0;
+                    font-size: 2.6rem;
+                    line-height: 1.2;
+                    letter-spacing: -0.053rem;
+                    color: #282a29;
+                    p {
+                        font-size: var(--fs-body-medium);
+                        line-height: var(--lh-body-medium);
+                        letter-spacing: var(--ls-body-medium);
+                    }
+                }
+                // Order list
+                ol {
+                    padding-left: var(--pd-container);
+                }
+                // Group
+                &-group {
+                    &:last-child {
+                        span {
+                            font-size: 1.6rem;
+                            line-height: 1.4;
+                            letter-spacing: -0.018rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

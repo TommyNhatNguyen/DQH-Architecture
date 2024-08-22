@@ -1,0 +1,183 @@
+:root {
+    --page-max-width: 1920px;
+    --container-max-width: calc(1603px + var(--pd-container) * 2);
+    --gap: 2px;
+    --pd-container: 28px;
+    // Button height
+    --button-height: 64px;
+    // Header height
+    --header-height: 160px;
+    // Transition duration
+    --transition-duration: 0.3s;
+    // Opacity
+    --opacity: 0.5;
+    // Color
+    --main-cl: #303231;
+    --gray-cl: #979898;
+    --gray-light-cl: #d6d6d6;
+    --neutral-cl: #f5f5f5;
+    --white-cl: #ffff;
+    --gray-dark-cl: #535453;
+    --black-cl: #000000;
+    --black-cl-2: #0a0a0a;
+    --red-cl: #ed4337;
+    // Font family
+    --ff-bold: "ib";
+    --ff-semibold: "ism";
+    --ff-extrabold: "ixb";
+    --ff-regular: "ir";
+    --ff-medium: "im";
+    // Font size
+    --fs-h1: 11rem;
+    --lh-h1: 1.2;
+    --ls-h1: -0.245rem;
+
+    --fs-h1-small: 6.8rem;
+    --lh-h1-small: 1.2;
+    --ls-h1-small: -0.152rem;
+
+    --fs-h2-small: 4.2rem;
+    --lh-h2-small: 1.2;
+    --ls-h2-small: -0.093rem;
+
+    --fs-h2-medium: 4.2rem;
+    --lh-h2-medium: 1.2;
+    --ls-h2-medium: -0.093rem;
+
+    --fs-h2-big: 4.2rem;
+    --lh-h2-big: 1.2;
+    --ls-h2-big: -0.093rem;
+
+    --fs-h3-small: 2.6rem;
+    --lh-h3-small: 1.2;
+    --ls-h3-small: -0.053rem;
+
+    --fs-h3-medium: 2.6rem;
+    --lh-h3-medium: 1.2;
+    --ls-h3-medium: -0.053rem;
+
+    --fs-h3-big: 2.6rem;
+    --lh-h3-big: 1.2;
+    --ls-h3-big: -0.053rem;
+
+    --fs-body-big: 2.6rem;
+    --lh-body-big: 1.2;
+    --ls-body-big: -0.053rem;
+
+    --fs-body-medium: 1.6rem;
+    --lh-body-medium: 1.4;
+    --ls-body-medium: -0.018rem;
+
+    --fs-body-small: 1.6rem;
+    --lh-body-small: 1.4;
+    --ls-body-small: -0.018rem;
+
+    --fs-label: 2.6rem;
+    --lh-label: 1.2;
+    --ls-label: -0.053rem;
+
+    --fs-texttag-big: 1.6rem;
+    --lh-texttag-big: 1.4;
+    --ls-texttag-big: -0.018rem;
+
+    --fs-texttag-small: 1.6rem;
+    --lh-texttag-small: 1.4;
+    --ls-texttag-small: -0.018rem;
+
+    --fs-button-big: 2.6rem;
+    --lh-button-big: 1.2;
+    --ls-button-big: -0.053rem;
+
+    --fs-button-small: 1.6rem;
+    --lh-button-small: 1.4;
+    --ls-button-small: -0.018rem;
+
+    --fs-textinput: 1.6rem;
+    --lh-textinput: 1.4;
+    --ls-textinput: -0.018rem;
+
+    --fs-textfooter: 1.6rem;
+    --lh-textfooter: 1.4;
+    --ls-textfooter: -0.018rem;
+
+    // Responsive
+    @include sm {
+        --container-max-width: 100%;
+        --pd-container: 16px;
+        --header-height: 100px;
+        // Button height
+        --button-height: 48px;
+        // Font size
+        --fs-h1: 2.8rem;
+        --lh-h1: normal;
+        --ls-h1: 0.036rem;
+
+        --fs-h1-small: 2.8rem;
+        --lh-h1-small: normal;
+        --ls-h1-small: 0.036rem;
+
+        --fs-h2-small: 1.7rem;
+        --lh-h2-small: normal;
+        --ls-h2-small: -0.041rem;
+
+        --fs-h2-medium: 2.2rem;
+        --lh-h2-medium: normal;
+        --ls-h2-medium: 0.035rem;
+
+        --fs-h2-big: 2.8rem;
+        --lh-h2-big: normal;
+        --ls-h2-big: 0.036rem;
+
+        --fs-h3-small: 1.6rem;
+        --lh-h3-small: 1.2;
+        --ls-h3-small: -0.053rem;
+
+        --fs-h3-medium: 1.7rem;
+        --lh-h3-medium: normal;
+        --ls-h3-medium: -0.041rem;
+
+        --fs-h3-big: 2rem;
+        --lh-h3-big: normal;
+        --ls-h3-big: -0.038rem;
+
+        --fs-body-big: 1.5rem;
+        --lh-body-big: 2;
+        --ls-body-big: -0.024rem;
+
+        --fs-body-medium: 1.5rem;
+        --lh-body-medium: 2;
+        --ls-body-medium: -0.024rem;
+
+        --fs-body-small: 1.3rem;
+        --lh-body-small: 2;
+        --ls-body-small: -0.008rem;
+
+        --fs-label: 1.7rem;
+        --lh-label: normal;
+        --ls-label: -0.041rem;
+
+        --fs-texttag-big: 1.5rem;
+        --lh-texttag-big: normal;
+        --ls-texttag-big: -0.024rem;
+
+        --fs-texttag-small: 1.3rem;
+        --lh-texttag-small: normal;
+        --ls-texttag-small: -0.008rem;
+
+        --fs-button-big: 1.6rem;
+        --lh-button-big: normal;
+        --ls-button-big: -0.032rem;
+
+        --fs-button-small: 1.6rem;
+        --lh-button-small: normal;
+        --ls-button-small: -0.032rem;
+
+        --fs-textinput: 1.6rem;
+        --lh-textinput: normal;
+        --ls-textinput: -0.032rem;
+
+        --fs-textfooter: 1.6rem;
+        --lh-textfooter: normal;
+        --ls-textfooter: -0.032rem;
+    }
+}
